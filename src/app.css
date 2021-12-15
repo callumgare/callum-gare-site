@@ -17,16 +17,21 @@
 	}
 }
 
-body {
-	min-height: 100vh;
-	margin: 0;
+html {
 	background-color: var(--colour-background);
 	color: var(--colour-text);
 	transition: background-color var(--time-colour-transition), color var(--time-colour-transition);
 }
 
+body {
+	min-height: 100vh;
+	min-height: -webkit-fill-available;
+	margin: 0;
+}
+
 #svelte {
 	min-height: 100vh;
+	min-height: -webkit-fill-available;
 	display: flex;
 	flex-direction: column;
 }

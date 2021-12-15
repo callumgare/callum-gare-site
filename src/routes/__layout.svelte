@@ -9,7 +9,20 @@
 		rootElm.style.setProperty('--colour-light', colourPallet.light);
 		rootElm.style.setProperty('--colour-dark', colourPallet.dark);
 	}
+	let themeColour = colourPallet.light;
+	if (typeof window !== 'undefined') {
+		if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+			themeColour = colourPallet.dark;
+		}
+		window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+			themeColour = colourPallet[e.matches ? 'dark' : 'light'];
+		});
+	}
 </script>
+
+<svelte:head>
+	<meta name="theme-color" content={`${themeColour}`} />
+</svelte:head>
 
 <main>
 	<slot />
