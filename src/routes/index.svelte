@@ -16,6 +16,7 @@
 	}
 	div .openingLine {
 		font-size: 3em;
+		margin-bottom: 0.15em;
 		display: block;
 	}
 </style>
