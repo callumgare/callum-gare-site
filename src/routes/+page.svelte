@@ -1,8 +1,15 @@
 <script lang="ts">
 	import { getRandomColourPallet } from '$lib/colour-pallet';
 
+	let contentElm;
+
 	if (typeof document !== 'undefined') {
-		document.addEventListener('click', changeColourScheme);
+		document.addEventListener('click', (event) => {
+			if (contentElm?.contains(event.target)) {
+				return;
+			}
+			changeColourScheme();
+		});
 	}
 
 	function changeColourScheme() {
@@ -30,22 +37,32 @@
 	<title>Callum Gare</title>
 </svelte:head>
 
-<div>
-	<span class="openingLine">Hi, I’m Callum.</span>
-	A full stack web dev living on the lands of the Wurundjeri people of the Kulin nation in Melbourne,
-	Aus. You can reach me at <a href="mailto:callum@gare.au">callum@gare.au</a>.
+<div class="container">
+	<div class="content" bind:this={contentElm}>
+		<span class="openingLine">Hi, I’m Callum.</span>
+		A full stack web dev living on the lands of the Wurundjeri people of the Kulin nation in Melbourne,
+		Aus. You can reach me at <a href="mailto:callum@gare.au">callum@gare.au</a>.
+	</div>
 </div>
 
 <style>
-	div {
+	:global(body) {
+		user-select: none;
+	}
+	.container {
 		min-height: 33vh;
 		text-align: center;
 		font-size: 1.5em;
 		max-width: 29em;
-	}
-	div .openingLine {
-		font-size: 3em;
-		margin-bottom: 0.15em;
-		display: block;
+
+		& .content {
+			user-select: text;
+
+			& .openingLine {
+				font-size: 3em;
+				margin-bottom: 0.15em;
+				display: block;
+			}
+		}
 	}
 </style>
