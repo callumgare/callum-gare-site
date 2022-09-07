@@ -1,8 +1,28 @@
 <script lang="ts">
 	import '../app.postcss';
+	let rootElm
+	// Chrome seems to show underline on links during the font blocking stage even though it should be invisble
+	// so we workaround that by manually hiding the underlines till after font has loaded
+	if (typeof document !== 'undefined') {
+		document.fonts.load("3em Forum").then(
+			() => rootElm?.classList.remove('fontsLoading')
+		)
+	}
 </script>
 
-<main>
+<svelte:head>
+	<style>
+		main.fontsLoading a {
+			text-decoration-color: transparent;
+		}
+	</style>
+	<title>Callum Gare</title>
+</svelte:head>
+
+<main
+	class="fontsLoading"
+	bind:this={rootElm}
+>
 	<slot />
 </main>
 

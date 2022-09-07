@@ -12,8 +12,10 @@ const config = {
 	],
 
 	kit: {
-		adapter: adapter()
-	}
+		adapter: adapter(),
+		// Currently urls to assets in css values get messed up by this but probably enable when fixed
+		// inlineStyleThreshold: 1024,
+	},
 };
 
 export default config;
