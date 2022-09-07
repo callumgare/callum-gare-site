@@ -10,6 +10,7 @@
 
 <style>
 	div {
+		min-height: 33vh;
 		text-align: center;
 		font-size: 1.5em;
 		max-width: 29em;

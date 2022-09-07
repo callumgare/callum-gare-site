@@ -17,5 +17,6 @@
 		box-sizing: border-box;
 		justify-content: center;
 		align-items: center;
+		align-items: safe center;
 	}
 </style>
