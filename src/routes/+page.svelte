@@ -28,7 +28,7 @@
 			).content = colourPallet.light;
 			(
 				document.querySelector('meta[media="(prefers-color-scheme: dark)"]') as HTMLMetaElement
-			).content = colourPallet.light;
+			).content = colourPallet.dark;
 		} catch (error) {}
 	}
 </script>
