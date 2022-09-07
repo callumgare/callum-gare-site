@@ -6,9 +6,10 @@ const config = {
 		{
 			postcssPlugin: true,
 			Declaration: {
-			  'font-display': (node) => {
-				if (node.parent.name === 'font-face' && node.parent.type === 'atrule') node.value = 'block'
-			  }
+				'font-display': (node) => {
+					if (node.parent.name === 'font-face' && node.parent.type === 'atrule')
+						node.value = 'block';
+				}
 			}
 		}
 	]
