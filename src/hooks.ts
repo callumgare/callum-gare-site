@@ -2,7 +2,7 @@
 import { getRandomColourPallet } from './lib/colour-pallet';
 export async function handle({ event, resolve }) {
 	return await resolve(event, {
-		transformPage: ({ html }) => insertColourPalletVars(html)
+		transformPageChunk: ({ html }) => insertColourPalletVars(html)
 	});
 }
 
