@@ -1,6 +1,6 @@
 <script lang="ts">
 	import '../app.postcss';
-	let rootElm;
+	let rootElm: HTMLElement;
 	// Chrome seems to show underline on links during the font blocking stage even though it should be invisble
 	// so we workaround that by manually hiding the underlines till after font has loaded
 	if (typeof document !== 'undefined') {

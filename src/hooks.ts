@@ -1,10 +1,11 @@
-/** @type {import('@sveltejs/kit').Handle} */
+import type { Handle } from '@sveltejs/kit';
 import { getRandomColourPallet } from './lib/colour-pallet';
-export async function handle({ event, resolve }) {
+
+export const handle: Handle = async function ({ event, resolve }) {
 	return await resolve(event, {
 		transformPageChunk: ({ html }) => insertColourPalletVars(html)
 	});
-}
+};
 
 function insertColourPalletVars(html: string): string {
 	const colourPallet = getRandomColourPallet();

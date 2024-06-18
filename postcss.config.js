@@ -1,7 +1,7 @@
-const autoprefixer = require('autoprefixer');
-const postcssNesting = require('postcss-nesting');
+import autoprefixer from 'autoprefixer';
+import postcssNesting from 'postcss-nesting';
 
-const config = {
+export default {
 	plugins: [
 		autoprefixer,
 		postcssNesting,
@@ -16,5 +16,3 @@ const config = {
 		}
 	]
 };
-
-module.exports = config;

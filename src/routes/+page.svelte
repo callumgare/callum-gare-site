@@ -1,11 +1,11 @@
 <script lang="ts">
 	import { getRandomColourPallet } from '$lib/colour-pallet';
 
-	let contentElm;
+	let contentElm: HTMLElement;
 
 	if (typeof document !== 'undefined') {
 		document.addEventListener('click', (event) => {
-			if (contentElm?.contains(event.target)) {
+			if (!(event.target instanceof Element) || contentElm?.contains(event.target)) {
 				return;
 			}
 			changeColourScheme();
@@ -29,7 +29,9 @@
 			(
 				document.querySelector('meta[media="(prefers-color-scheme: dark)"]') as HTMLMetaElement
 			).content = colourPallet.dark;
-		} catch (error) {}
+		} catch (error) {
+			console.error('Failed to change colour scheme', error);
+		}
 	}
 </script>
 
